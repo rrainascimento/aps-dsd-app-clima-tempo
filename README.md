@@ -17,7 +17,7 @@ Preencha a propriedade `weatherKey` com sua chave API Open Weather Map e salve a
 
 ## Operação do aplicativo
 
-Na inicialização, o aplicativo usa o plug-in Apache Cordova Geolocation para determinar a localização atual do dispositivo que executa o aplicativo e, em seguida, carrega as condições meteorológicas para esse local. A interface do usuário principal do aplicativo é dividida usando um segmento iônico (controle de `íon-segmento`); o segmento ** Atual ** mostra as condições meteorológicas atuais, enquanto o segmento ** Previsão ** lista a previsão de 5 dias para o local. Toque no ícone de atualização no canto superior direito da IU do aplicativo para atualizar os dados meteorológicos para a localização atual.
+Na inicialização, o aplicativo usa o plug-in Apache Cordova Geolocation para determinar a localização atual do dispositivo que executa o aplicativo e, em seguida, carrega as condições meteorológicas para esse local. A tela principal do aplicativo é dividida usando um segmento iônico (controle de `íon-segmento`); o segmento **Atual** mostra as condições meteorológicas atuais, enquanto o segmento **Previsão** lista a previsão de 5 dias para o local. Toque no ícone de atualização no canto superior direito da tela do aplicativo para atualizar os dados meteorológicos para a localização correspondente.
 
 Quando um usuário insere um código postal dos EUA, o aplicativo recupera as condições meteorológicas atuais para o local especificado.
 
