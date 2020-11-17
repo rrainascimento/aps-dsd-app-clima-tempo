@@ -17,16 +17,9 @@ export class WeatherService {
   }
 
   private makeWeatherURL(loc: LocationConfig, command: string): string {
-    // Build a weather service URL using the command string and
-    // location data that we have.
-    // Current Conditions
-    // api.openweathermap.org/data/2.5/weather?lat=35&lon=139
-    // api.openweathermap.org/data/2.5/weather?zip=94040,us
-    // Forecast
-    // api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}
-    // api.openweathermap.org/data/2.5/forecast/daily?zip=94040,us
+
     console.log('WeatherService: makeWeatherURL()');
-    // console.dir(loc);
+
     let uri = Config.weatherEndpoint + command;
     if (loc.type === LocationType.Geolocation) {
       console.log('makeWeatherURL: URL de pesquisa por localização de construçãoL');
@@ -37,14 +30,10 @@ export class WeatherService {
       //@ts-ignore
       uri += `?q=${loc.value.PostalCode},` + 'BRA';
     }
-    // Configure output for imperial (English) measurements
     uri += '&units=metric';
-    // Use the following instead for metric
-    //  uri += '&units=metric';
-    // Append the API Key to the end of the URI
+
     uri += `&APPID=${Config.weatherKey}`;
     console.log(`Service URL: ${uri}`);
-    // Return the value
     return uri;
   }
 
