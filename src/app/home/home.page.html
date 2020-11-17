@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="getLocalWeather()">
+        <ion-icon slot="icon-only" name="locate"></ion-icon>
+      </ion-button>
+      <ion-button (click)="updatePage()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      MeuClima
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="setPostalCode()">
+    <ion-item>
+      <ion-label>Insira seu CEP:</ion-label>
+      <ion-input type="text" [(ngModel)]="searchInput" name="PostalCode" placeholder="CEP"></ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="block">
+      <ion-icon slot="start" name="locate"></ion-icon>
+      Buscar
+    </ion-button>
+  </form>
+
+  <ion-segment [(ngModel)]="displayMode">
+    <ion-segment-button value="current">
+      Atual
+    </ion-segment-button>
+    <ion-segment-button value="forecast">
+      Previsão
+    </ion-segment-button>    
+  </ion-segment>
+
+  <div [ngSwitch]="displayMode">
+
+    <ion-list no-lines *ngSwitchCase="'current'">
+      <!--show this if there are no items in the list-->
+      <ion-item [hidden]="currentItems.length > 0">
+        <p><strong>Os dados meteorológicos não estão disponíveis.</strong></p>
+      </ion-item>
+      <!--Display the current conditions data we have -->
+      <ion-item *ngFor="let c_item of currentItems">
+        <p><strong>{{c_item.name}}:</strong> {{c_item.value}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list inset *ngSwitchCase="'forecast'">
+      <ion-item text-class="ion-text-wrap" lines="none">
+        {{ forecastItems.length ? 'Toque em um item para visualizar a previsão para o período selecionado. .': 'Os dados de previsão não estão disponíveis no momento.' }}
+      </ion-item>
+      <ion-item lines="full" *ngFor="let item of forecastItems" (click)="viewForecast(item)">
+        <ion-icon name="time" slot="start"></ion-icon>
+        {{item.period}}
+      </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>
