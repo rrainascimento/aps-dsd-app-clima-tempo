@@ -1,12 +1,10 @@
-# Weather App - Ionic 4
+# Aplicação de Clima - Ionic 4
 
-by John M. Wargo
+por Rai Nascimento
 
 ## Introduction
 
-This is an Ionic 4/Capacitor version of the [TACO Weather App](http://taco.visualstudio.com/en-us/docs/vs-taco-2017-first-app/) solution. I created the [Ionic 2/Cordova](https://github.com/microsoft/cordova-samples/tree/master/weather-app-ionic2) version of this app while I worked on the docs for [Visual Studio 2017 Tools for Apache Cordova (TACO)](https://visualstudio.microsoft.com/vs/features/cordova/). That app hasn't been updated in a while, so I thought I'd give it a refresh. This version of the app is an Ionic Capacitor app; as market interest in Apache Cordova wanes, Capacitor is a robust alternative.
-
-The app uses the [Open Weather Map](http://openweathermap.org/) service to provide current weather conditions and a 5 day forecast; you'll need to update the project's `src/app/config.ts` file with your API key to run the app. The existing file looks like the following:
+O aplicativo usa o serviço [Open Weather Map] (http://openweathermap.org/) para fornecer as condições climáticas atuais e uma previsão de 5 dias; você precisará atualizar o arquivo `src / app / config.ts` do projeto com sua chave de API para executar o aplicativo. O arquivo existente se parece com o seguinte:
 
 ```TypeScript
 export const Config = {
@@ -15,24 +13,24 @@ export const Config = {
 }
 ```
 
-Populate the `weatherKey` property with your Open Weather Map API Key, then save the changes to the file.
+Preencha a propriedade `weatherKey` com sua chave API Open Weather Map e salve as alterações no arquivo.
 
 ## Application Operation
 
-On start up, the application uses the Apache Cordova Geolocation plugin to determine the current location for the device running the application, then loads the weather conditions for that location. The application's main UI is split using an Ionic Segment (`ion-segment` control); the **Current** segment shows current weather conditions while the **Forecast** segment lists the 5 day forecast for the location. Tap the refresh icon in the upper-right corner of the app's UI to refresh the weather data for the current location.
+Na inicialização, o aplicativo usa o plug-in Apache Cordova Geolocation para determinar a localização atual do dispositivo que executa o aplicativo e, em seguida, carrega as condições meteorológicas para esse local. A interface do usuário principal do aplicativo é dividida usando um segmento iônico (controle de `íon-segmento`); o segmento ** Atual ** mostra as condições meteorológicas atuais, enquanto o segmento ** Previsão ** lista a previsão de 5 dias para o local. Toque no ícone de atualização no canto superior direito da IU do aplicativo para atualizar os dados meteorológicos para a localização atual.
 
-When a user enters a US Zip Code, the application will retrieve current weather conditions for the specified location.
+Quando um usuário insere um código postal dos EUA, o aplicativo recupera as condições meteorológicas atuais para o local especificado.
 
-> **Note:** You can easily convert the app to use city name instead of Zip code. It requires merely changing the endpoint URL for the weather service.  
+> **Note:** Você pode converter facilmente o aplicativo para usar o nome da cidade em vez do código postal. Exige apenas a alteração do URL do endpoint para o serviço meteorológico. 
 
-The following figure shows the contents of the Current segment.
+A figura a seguir mostra o conteúdo do segmento Atual.
 
-![Application Home Screen](screenshots/figure-01.png)
+![Tela Principal da Aplicação](screenshots/loc_atual.png)
 
-When providing a forecast, the Open Weather API returns an array representing forecast time periods beginning with the following day at midnight (local time). The **Forecast** segment displays an interactive list of the available forecast periods as shown in the following figure:
+Ao fornecer uma previsão, a API Open Weather retorna uma matriz que representa os períodos de previsão que começam no dia seguinte à meia-noite (hora local). O segmento **Previsão** exibe uma lista interativa dos períodos de previsão disponíveis, conforme mostrado na figura a seguir:
 
-![Application Forecast List](screenshots/figure-02.png)
+![Lista da Previsão de tempo](screenshots/previsao_dia_semana.png)
 
-Tap on a period to open a page containing the detailed weather forecast for the selected period as shown in the following figure.
+Toque em um período para abrir uma página contendo a previsão do tempo detalhada para o período selecionado, conforme mostrado na figura a seguir.
 
-![Application Forecast Details](screenshots/figure-03.png)
+![Detalhes da previsão do tempo](screenshots/previsao_semanal.png)
