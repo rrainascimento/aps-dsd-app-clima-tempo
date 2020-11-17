@@ -2,7 +2,7 @@
 
 por Rai Nascimento
 
-## Introduction
+## Introdução
 
 O aplicativo usa o serviço [Open Weather Map] (http://openweathermap.org/) para fornecer as condições climáticas atuais e uma previsão de 5 dias; você precisará atualizar o arquivo `src / app / config.ts` do projeto com sua chave de API para executar o aplicativo. O arquivo existente se parece com o seguinte:
 
@@ -15,7 +15,7 @@ export const Config = {
 
 Preencha a propriedade `weatherKey` com sua chave API Open Weather Map e salve as alterações no arquivo.
 
-## Application Operation
+## Operação do aplicativo
 
 Na inicialização, o aplicativo usa o plug-in Apache Cordova Geolocation para determinar a localização atual do dispositivo que executa o aplicativo e, em seguida, carrega as condições meteorológicas para esse local. A interface do usuário principal do aplicativo é dividida usando um segmento iônico (controle de `íon-segmento`); o segmento ** Atual ** mostra as condições meteorológicas atuais, enquanto o segmento ** Previsão ** lista a previsão de 5 dias para o local. Toque no ícone de atualização no canto superior direito da IU do aplicativo para atualizar os dados meteorológicos para a localização atual.
 
@@ -29,8 +29,8 @@ A figura a seguir mostra o conteúdo do segmento Atual.
 
 Ao fornecer uma previsão, a API Open Weather retorna uma matriz que representa os períodos de previsão que começam no dia seguinte à meia-noite (hora local). O segmento **Previsão** exibe uma lista interativa dos períodos de previsão disponíveis, conforme mostrado na figura a seguir:
 
-![Lista da Previsão de tempo](screenshots/previsao_dia_semana.png)
+![Lista da Previsão de tempo](screenshots/previsao_semanal.png)
 
 Toque em um período para abrir uma página contendo a previsão do tempo detalhada para o período selecionado, conforme mostrado na figura a seguir.
 
-![Detalhes da previsão do tempo](screenshots/previsao_semanal.png)
+![Detalhes da previsão do tempo](screenshots/previsao_dia_semana.png)
