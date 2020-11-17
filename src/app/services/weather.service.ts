@@ -29,13 +29,13 @@ export class WeatherService {
     // console.dir(loc);
     let uri = Config.weatherEndpoint + command;
     if (loc.type === LocationType.Geolocation) {
-      console.log('makeWeatherURL: Building Location URL');
+      console.log('makeWeatherURL: URL de pesquisa por localização de construçãoL');
       //@ts-ignore
       uri += `?lat=${loc.value.latitude}&lon=${loc.value.longitude}`;
     } else {
-      console.log('makeWeatherURL: Building Zip Code URL');
+      console.log('makeWeatherURL: URL de pesquisa por cidade de construção');
       //@ts-ignore
-      uri += `?zip=${loc.value.PostalCode}`;
+      uri += `?q=${loc.value.PostalCode},` + 'BRA';
     }
     // Configure output for imperial (English) measurements
     uri += '&units=metric';
